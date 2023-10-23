@@ -1,0 +1,67 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center" >
+<div class="container" align="center" style=" margin-top:10vh; margin-bottom: 120px;">
+
+<div class="container" align="center" style="min-height:50vh;max-height:75vh; margin-top:10vh; margin-bottom: 125px;">
+    <div style=" margin-top:10px;  height:45px; margin-top:1vh;">
+  <table>
+  <tr><th><h3><b><a href="../view_team">Back</a></b></h3></th></tr>
+  </table>
+  </div>
+
+<table class="table" style="color:white; text-align:left;">
+    <form action="../update_team/{{data.0}}" method="POST" id="statusform" enctype="multipart/form-data">
+  {% csrf_token %}
+  <tr>
+    <th colspan="2"><h3><b>Edit Team</b></h3></th>
+  </tr>
+  <tr>
+    <th style="color:red;">Team Name</th>
+    <td><input type="text" name="name"value="{{data.1}}" required  style="opacity:0.6; "></td>
+  </tr>
+
+ <tr>
+    <th style="color:red;">Address :</th>
+    <td><input type="text" name="address" value="{{data.2}}" required style="opacity:0.6; "></td>
+  </tr>
+    <tr>
+    <th style="color:red;">Phone Number :</th>
+    <td>
+       <input type="number"  name="phone" value="{{data.3}}"  required style="opacity:0.6; "></input>
+    </td>
+  </tr>
+
+    <th style="color:red;">Email Id :</th>
+    <td><input type="text" name="email" value="{{data.4}}"required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <th style="color:red;">No Of Trophy :</th>
+    <td><input type="number" name="trophy" value="{{data.5}}" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <th style="color:red;">Founded in :</th>
+    <td>
+       <input type="number"  name="year" min="1910" max="2022" value="{{data.6}}"required style="opacity:0.6; "></input>
+    </td>
+  </tr>
+    <tr>
+    <th style="color:red;">Location :</th>
+    <td><input type="text" name="location" value="{{data.7}}" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Update"class="btn btn-success" ></td>
+  </tr>
+</form>
+</table>
+
+
+</div>
+</div>
+  </section>  {% endblock %}

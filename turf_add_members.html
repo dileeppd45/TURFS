@@ -1,0 +1,76 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+<style>
+    .messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messages li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.messages.success li {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.messages.error li {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+</style>
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+<form action="../members_add" method="POST" id="statusform" enctype="multipart/form-data">
+  {% csrf_token %}
+<table class="table table-hover" style="color:white; text-align:left;">
+  <tr><th colspan="2"><h3>Add Team Members</h3></th></tr>
+  <tr>
+    <th>Player Name :</th>
+    <td><input type="text" name="name" required style="opacity:0.6; "></td>
+    <input type="hidden" name="teamid" value="{{id}}">
+  </tr>
+    <tr>
+    <th>Yellow Cards :</th>
+    <td><input type="number" name="yellow" required style="opacity:0.6; "></td>
+    </tr>
+  <tr>
+    <th>Red Card :</th>
+    <td><input type="number" name="red" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <th>Player Image :</th>
+    <td><input type="file" name="upload" accept="image/*" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <th>Player Position :</th>
+    <td>
+        <select  name="position"  required  style="opacity:0.6; ">
+            <option value="Goalkeeper" selected>Goalkeeper</option>
+            <option value="Defender">Defender</option>
+            <option value="Midfielder">Midfielder</option>
+            <option value="Forward">Forward</option>
+        </select>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Add Player"class="btn btn-success " ></td>
+  </tr>
+</table>
+
+</form>
+
+</div>
+  </section>
+  {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px; ">
+
+    <div><p style="color:yellow;">Hi.. {{user}} welcome to Indian Turfs.. Here you can send us feedbacks, sugestions any other requirements. so that we will try to update in a better way as your desire  </p></div>
+    <table class="table" style="color:white; text-align:left;" >
+        <tr><th colspan="2"><h3>Feedback Form</h3></th></tr>
+
+        <form action="sendfb" method="post">
+            {% csrf_token %}
+        <tr>
+            <th style="color:red;">Add Your Feedback :</th>
+            <td><textarea id="description" name="fbdetails" style="height:200px; opacity:0.6; " required ></textarea></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td ><input type="submit" value="Send" class="btn btn-success" ></td>
+        </tr>
+
+        </form>
+
+    </table>
+</div>
+</section>
+{% endblock %}

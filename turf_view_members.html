@@ -1,0 +1,74 @@
+{% extends 'turf_headernologout.html' %}
+   {% block content %}
+   
+
+
+<style>
+    .messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messages li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.messages.success li {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.messages.error li {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+</style>
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+             <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+{% endif %}
+<table style="width:90%; color:white; text-align:left;"   class="table table-hover" >
+    <tr>
+        <th colspan="10"><h3>Team Members</h3></th>
+    </tr>
+    <tr style="color:red;">
+        <th>Sl No.</th>
+        <th>Player Name</th>
+        <th>Yellow Card</th>
+        <th>Red Card</th>
+        <th>Player Image</th>
+        <th>Position</th>
+        <th>Edit</th>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+
+        <td>{{data.2}}</td>
+        <td> {{data.3}}  </td>
+        <td>{{data.4}}</td>
+        <td><a href="../media/{{data.5}}"><img src="../media/{{data.5}}" style="width:100px; height:100px;"></a></td>
+
+        <td>{{data.6}}</td>
+        <td> <a href="../delete_member/{{data.0}}">Remove</a></td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+      </section>
+      {% endblock %}

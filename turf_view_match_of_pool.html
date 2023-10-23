@@ -1,0 +1,46 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+             <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="7"><h3>Registered Matches</h3></th></tr>
+    <tr>
+        <th>Sl No.</th>
+        <th>Match Name</th>
+        <th>Teams</th>
+        <th>Date Of Match</th>
+        <th>Result</th>
+        <th>Score</th>
+        <th ></th>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.4}}</td>
+        <td> {{data.5}} <b style="color:red;">V/S</b>{{data.6}} </td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+         <td>{{data.8}}</td>
+        <td> <a href="../edit_match/{{data.0}}">Update</a></td>
+
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+      </section>  {% endblock %}

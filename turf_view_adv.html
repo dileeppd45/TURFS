@@ -1,0 +1,32 @@
+{% extends 'turf_headernologout.html' %}
+   {% block content %}
+   
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="7"><h3>Registered Matches</h3></th></tr>
+    <tr>
+        <th>Sl No.</th>
+        <th>Discription</th>
+        <th>Posters</th>
+        <th colspan="2" >Edit</th>
+    </tr>
+{% for data in adv %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.2}}</td>
+        <td> <a href="../media/{{data.3}}"><img style="width:120px; height:120px; " src="../media/{{data.3}}"></a></td>
+        <td> <a href="../edit_adv/{{data.0}}">Edit</a></td>
+        <td> <a href="../delete_adv/{{data.0}}">Remove</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+      </section>
+      {% endblock %}

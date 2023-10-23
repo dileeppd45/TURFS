@@ -1,0 +1,43 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+ <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:10vh; margin-bottom: 125px; overflow:scroll; ">
+  <div style=" margin-top:10px;  height:45px; margin-top:1vh;">
+  <table>
+  <tr><th><h3><b><a href="../view_comp">Back</a></b></h3></th></tr>
+  </table>
+  </div>
+    <div class="container" align="center" style=" min-height:50vh; margin-top:100px; margin-bottom: 75px;">
+
+
+<table class="table table-hover" style="color:white; text-align:left;">
+ <form action="../add_adv" method="POST" id="statusform" enctype="multipart/form-data">
+  {% csrf_token %}
+
+
+    <tr>
+    <th>Add Advertisement :</th>
+    <td><input type="file" name="upload" accept="image/jpeg" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <th>Description :</th>
+    <td><input type="text" name="desc" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Add Team"class="btn btn-success " ></td>
+  </tr>
+    </form>
+</table>
+
+
+
+</div>
+
+  <br>
+</div>
+      </section>
+      {% endblock %}

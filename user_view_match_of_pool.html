@@ -1,0 +1,59 @@
+{% extends 'user_header.html' %}
+   {% block content %}
+   
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.center{
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+}
+</style>
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="7"><h3>Registered Matches</h3></th></tr>
+    <tr>
+        <th>Sl No.</th>
+        <th>Match Name</th>
+        <th>Teams</th>
+        <th>Date Of Match</th>
+        <th>Result</th>
+        <th>Score</th>
+
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.4}}</td>
+        <td> {{data.5}} <b style="color:red;">V/S</b>{{data.6}} </td>
+        <td>{{data.2}}</td>
+        <td>{{data.3}}</td>
+        <td>{{data.8}}</td>
+
+
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+      </section>
+
+
+      {% endblock %}

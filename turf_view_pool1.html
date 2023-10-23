@@ -1,0 +1,36 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center" style="min-height:150vh;">
+
+ <div class="column" style="background-color: transparent; border-color: #EDA800; margin:50px;">
+    <div class="content container"  style="background-color:#E3242B; width:200px;">
+    <div class="container" style=" height:40px; text-align:center; color:#EDA800;"><b><h2 style="color:#EDA800;">Pool A</h2></b></div>
+    <br><br>
+    <div class="container" style=" height:50px; text-align:center; border-style: solid;border-color: #EDA800; padding-top:5px; ">
+    <div style="padding-top:7px;"><b style="color:#EDA800;"> {{team.0}}</b></div>
+    </div>
+    <br>
+        <div class="container" style=" height:50px; text-align:center; border-style: solid;border-color: #EDA800; padding-top:5px; ">
+   <div style="padding-top:7px;"><b style="color:#EDA800;"> {{team.2}}</b></div>
+    </div>
+    <br>
+        <div class="container" style=" height:50px; text-align:center; border-style: solid;border-color: #EDA800; padding-top:5px; ">
+    <div style="padding-top:7px;"><b style="color:#EDA800;"> {{team.4}}</b></div>
+    </div>
+    <br>
+        <div class="container" style=" height:50px; text-align:center; border-style: solid;border-color: #EDA800; padding-top:5px; ">
+    <div style="padding-top:7px;"><b style="color:#EDA800;"> {{team.6}}</b></div>
+    </div>
+     <br>
+        <a href="../make_match_of_pool/{{team.8}}"><h3>Make Match</h3></a>
+    <br>
+        <a href="../view_match_of_pool/{{team.8}}"><h3>View Match</h3></a>
+        <br>
+    </div>
+    </div>
+
+      </section>
+      {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:10vh; margin-bottom: 125px; overflow:scroll; ">
+  <div style=" margin-top:10px;  height:45px; margin-top:1vh;">
+  <table>
+  <tr><th><h3><b><a href="../view_match_of_pool/{{row.8}}">Back</a></b></h3></th></tr>
+  </table>
+  </div>
+
+
+<table class="table" style="color:white;text-align:left;">
+  <form action="../update_match/{{row.0}}" method="POST" id="statusform">
+  {% csrf_token %}
+  <tr>
+    <th colspan="2"><h3 ><b>Edit Match</b></h3></th>
+  </tr>
+     <tr>
+    <td>Match :</td>
+    <td><h4>{{row.5}} v/s {{row.6}}</h4></td>
+  </tr>
+    <tr>
+    <td>Match Name</td>
+    <td><input type="text" name="mn"  value="{{row.4}}" required style="opacity:0.6; "></td>
+      <input type="hidden" name="pid" value="{{row.8}}" >
+  </tr>
+
+  <tr>
+    <td>Match Date</td>
+    <td><input type="date" name="date" value="{{row.2}}" required style="opacity:0.6; " ></td>
+  </tr>
+    <tr>
+    <td>Score</td>
+    <td><input type="text" name="score" value="{{row.9}}" required style="opacity:0.6; " ></td>
+  </tr>
+  <tr>
+    <td>Result</td>
+    <td>
+      <select name="result" form="statusform"  style="opacity:0.6; ">
+        <option value="{{row.3}}" selected>---------</option>
+        <option value="{{row.5}} won">{{row.5}} won</option>
+        <option value="draw">Draw</option>
+        <option value="not published">not published</option>
+        <option value="{{row.6}} won">{{row.6}} won</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+
+    <td></td>
+    <td><input type="submit" value="Add match" class="btn btn-success" ></td>
+  </tr>
+</form>
+</table>
+
+  <br>
+</div>
+      </section> 
+       {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin_headernologout.html' %}
+   {% block content %}
+   
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="8"><h3>Turf Rgister Requests</h3></th></tr>
+    <tr style="color:red;">
+        <th>Sl No.</th>
+        <th>Turf</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email id</th>
+        <th>Lat/|\.:./|\lon</th>
+        <th colspan="2">Update Status</th>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.1}}</td>
+        <td>{{data.2}}</td>
+        <td> {{data.3}}  </td>
+        <td> {{data.4}}</td>
+              <td><a href="../location/{{data.6}}/{{data.7}}"><span class="glyphicon glyphicon-pencil" >View</span></a></td>
+
+        <td>
+            <form action="../edit_pending_turf_status" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{data.0}}" name="id" >
+            <input type="submit" value="Approve" class="btn btn-success">
+            </form>
+        </td>
+         <td>
+            <form action="../reject_pending_turf_status" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{data.0}}" name="id" >
+            <input type="submit" value="Reject" class="btn btn-success">
+            </form>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+  </section>
+  {% endblock %}

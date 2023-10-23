@@ -1,0 +1,70 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+
+
+<table class="table" style="color:red; text-align:left;">
+    <form action="add_match" method="POST" id="statusform">
+  {% csrf_token %}
+    <tr>
+    <th colspan="2"><h3>Register Match</h3></th>
+  </tr>
+  <tr>
+    <td>Match Name</td>
+    <td><input type="text" name="mn" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <td>Team A</td>
+    <td>
+      <select  name="teamid"  required  style="opacity:0.6; ">
+        <option value="" selected>select</option>
+        {% for i in data %}
+        <option value="{{i.0}}">{{i.1}}</option>
+        {% endfor %}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Team B</td>
+    <td>
+      <select  name="oteamid"  required style="opacity:0.6; " >
+        <option value="" selected style="opacity:0.6; ">select</option>
+        {% for i in data %}
+        <option value="{{i.0}}" style="opacity:0.6; ">{{i.1}}</option>
+        {% endfor %}
+      </select>
+    </td>
+ <p class="text-danger">you entered same team as opponent.. please change it..</p>
+  </tr>
+  <tr>
+    <td>Match Date</td>
+    <td><input type="date" name="date" required style="opacity:0.6; " ></td>
+  </tr>
+
+  <tr>
+    <td>Result</td>
+    <td>
+      <select name="result" form="statusform" style="opacity:0.6; " >
+        <option value="not published" selected>Not Published</option>
+        <option value="won" style="opacity:0.6; ">Won</option>
+        <option value="drawn" style="opacity:0.6; ">Drawn</option>
+        <option value="lost" style="opacity:0.6; ">Lost</option>
+      </select>
+    </td>
+  </tr>
+    <tr>
+        <th></th><td><input type="submit" value="Add match" class="btn btn-success" ></td>
+    </tr>
+</form>
+</table>
+    <br>
+
+
+</div>
+     </section>
+     {% endblock %}

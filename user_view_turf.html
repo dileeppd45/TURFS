@@ -1,0 +1,61 @@
+{% extends 'user_headernologout.html' %}
+   {% block content %}
+   
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.center{
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+}
+</style>
+
+      <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+             <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="11"><h3>Viewing Turfs</h3></th></tr>
+    <tr style="color:red;">
+        <th>Sl No.</th>
+        <th>Turf Name</th>
+        <th>Competitions</th>
+        <th>Rate Turf </th>
+        <th>Location</th>
+    </tr>
+{% for data in turf %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.1}}</td>
+        <td><a href="../user_view_competition/{{data.0}}">View</a></td>
+        <td><a href="../user_rate_turf/{{data.0}}">Rate</a>
+        <td><a href="../location/{{data.6}}/{{data.7}}"><span class="glyphicon glyphicon-pencil" >View</span></a></td>
+
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+      </section>
+
+      {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style="height:55vh;   margin-bottom: 125px; overflow:scroll; ">
+<table class="table container" style="color:white; text-align:left; margin-top:-40px; min-htight:55vh;">
+      <tr>
+        <th colspan="3" style="text-align:left;"><h3>Your Feedbacks</h3></th>
+      </tr>
+        <tr style="color:red;">
+            <th>Send</th>
+            <th>Time</th>
+
+        </tr>
+            {% for data in table %}
+        <br>
+
+        <tr>
+            <td>{{data.2}}</td>
+            <td>{{data.3}}</td>
+
+        </tr>
+
+
+        <br>
+            {% endfor %}
+
+    </table>
+</div>
+</section>  {% endblock %}

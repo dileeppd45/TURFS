@@ -1,0 +1,31 @@
+{% extends 'user_header.html' %}
+   {% block content %}
+   
+
+  <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-6 col-lg-8">
+          <h1>Turfs<span>.</span></h1>
+          <h2>The Official Website of Turfs in Ernakulam</h2>
+        </div>
+      </div>
+      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        {% for rate in rates %}
+        <div class="col-xl-2 col-md-4" style="width:130px;">
+          <div class="icon-box">
+            <i ></i>
+            <p><a href="../user_rate_turf/{{rate.0}}">{{rate.0}}</a></p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+
+
+    </div>
+  </section><!-- End Hero -->
+  {% endblock %}

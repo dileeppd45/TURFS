@@ -1,0 +1,52 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+
+<table class="table table-hover" style="color:white; text-align:left;">
+  <form action="add_comp" method="POST" id="statusform">
+  {% csrf_token %}
+  <tr>
+    <th colspan="2"><h3>Register Competition</h3></th>
+  </tr>
+    <tr>
+    <td style="color:red;">Competition Name</td>
+    <td><input type="text" name="cn" required style="opacity:0.6; "></td>
+  </tr>
+    <tr>
+    <td style="color:red;">Start Date</td>
+    <td><input type="date" name="sdate" required style="opacity:0.6; "></td>
+  </tr>
+    <tr>
+    <td style="color:red;">End Date</td>
+    <td><input type="date" name="edate" required style="opacity:0.6; "></td>
+  </tr>
+    <tr>
+  <td>Total Team Count</td>
+      <td>
+      <select  name="teamcount"  required  style="opacity:0.6; ">
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+        <option value="32">32</option>
+
+      </select>
+    </td>
+  </tr>
+
+  <tr>
+    <th></th>
+    <td><input type="submit" value="Add Competition" class="btn btn-success" ></td>
+  </tr>
+</form>
+</table>
+
+
+</div>
+     </section>
+     {% endblock %}

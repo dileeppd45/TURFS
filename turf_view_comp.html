@@ -1,0 +1,50 @@
+{% extends 'turf_header.html' %}
+   {% block content %}
+   
+
+
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:300px; margin-bottom: 125px; overflow:scroll; ">
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+             <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<table style="width:100%; color:white; text-align:left;" class="table">
+    <tr><th colspan="11"><h3>Registered Competition</h3></th></tr>
+    <tr style="color:red;">
+        <th>Sl No.</th>
+        <th>Competition Name</th>
+        <th>Total Teams</th>
+        <th>Date</th>
+        <th colspan="2">Team</th>
+        <th colspan="2">Camp Advertise</th>
+        <th colspan="2" >Edit</th>
+        <th>Pool</th>
+    </tr>
+{% for data in comp %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{data.1}}</td>
+        <td>{{data.5}}</td>
+        <td> {{data.2}}---{{data.3}}</td>
+        <td><a href="../register_team/{{data.0}}">Add</a></td>
+        <td><a href="../view_team/{{data.0}}">View</a></td>
+        <td><a href="../view_adv/{{data.0}}">View</a></td>
+        <td><a href="../upload_adv/{{data.0}}">Upload</a></td>
+        <td> <a href="../edit_comp/{{data.0}}">Edit</a></td>
+        <td> <a href="">Remove</a></td><!-- ../delete_comp/{{data.0}} -->
+        <td><a href="../make_pool/{{data.0}}">View Pool</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+      </section>
+      {% endblock %}

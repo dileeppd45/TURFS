@@ -1,0 +1,54 @@
+{% extends 'turf_headernologout.html' %}
+   {% block content %}
+   
+
+
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+<div class="container" align="center" style=" min-height:50vh;max-height:75vh; margin-top:10vh; margin-bottom: 125px; overflow:scroll; ">
+
+<table class="table" style="color:white;text-align:left;">
+  <form action="../update_profile" method="POST" id="statusform">
+  {% csrf_token %}
+  <tr>
+    <th colspan="2"><h3 ><b>Your Profile</b></h3></th>
+  </tr>
+    <tr>
+    <td style="color: red;">Turf Name</td>
+    <td><input type="text"  name="name" placeholder="name." value="{{data.1}}" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <td style="color: red;">Email Id</td>
+    <td>
+      <input type="text" name="email" placeholder="email." value="{{data.4}}" required style="opacity:0.6; ">
+    </td>
+  </tr>
+  <tr>
+    <td style="color: red;">Address</td>
+    <td><input type="text"  name="address" placeholder="Your address" value="{{data.2}}" required style="opacity:0.6; "></td>
+  </tr>
+  <tr>
+    <td style="color: red;">Phone Number</td>
+    <td><input type="text"  name="phone" placeholder="phone" value="{{data.3}}" required style="opacity:0.6; " ></td>
+  </tr>
+  <tr>
+      <th style="color: red;"> Location</th>
+      <td><a href="../location/{{data.6}}/{{data.7}}"><span class="glyphicon glyphicon-pencil" >View</span></a></td>
+
+    </tr>
+    <tr>
+    <td style="color: red;">Password</td>
+    <td><input type="text"  name="password" placeholder="password." value="{{data.5}}" required style="opacity:0.6; " ></td>
+  </tr>
+
+
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Edit Profile" class="btn btn-success" ></td>
+  </tr>
+</form>
+</table>
+
+  <br>
+</div>
+      </section>
+      {% endblock %}
